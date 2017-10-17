@@ -36,3 +36,10 @@
 *.kate-swp
 *.backup
 *.tdo
+
+# tikzexternalize
+*.dep
+*.dpth
+*.md5
+*.auxlock
+

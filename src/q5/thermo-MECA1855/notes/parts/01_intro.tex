@@ -1,26 +1,74 @@
-\section{Questions sur le chapitre ``Introduction et rappels''}
-\subsection{Est-ce que la chaleur échangée entre un système et son extérieur est une variable d'état du système. Justifiez votre réponse.}
-Une \textbf{variable d'état} caractérise un état et non une évolution entre deux états. La chaleur échangée $Q$ entre un système et son extérieur décrit le passage d'un état à un autre et ne peux pas être mesurée instantanément. Les variables d'état d'un système thermodynamique sont par exemple la pression $p$, le volume $V$ ou encore la température $T$. 
+\section{Introduction et rappels}
+\subsection{Est-ce que la chaleur échangée entre un système et son extérieur est une variable d'état du système ? Justifier votre réponse.}
+Une \emph{variable d'état} est un paramètre qui caractérise un état et non une évolution entre deux états.
+La chaleur échangée $Q$ entre un système et son extérieur décrit le passage d'un état à un autre et ne peux pas être mesurée pour un état thermodynamique donné.
+Dans le cas d'une transformation (1-2) sans dissipation par frottements, on a par le premier principe
+\[ Q_{12} = U_2 - U_1 + \int_1^2 p \dif v. \]
+Dans le diagramme $(p,v)$ de la transformation, on peut passer de l'état 1 à l'état 2 par n'importe quelle courbe.
+La valeur de $\int_1^2 p \dif v$ dépend de la courbe qu'on prend, d'où on conclut que $Q_{12}$ ne dépend pas de l'état initial et final mais bien du chemin parcouru pour passer de l'état initial à l'état final.
 
-\subsection{Donnez la définition d'un processus \textit{adiabatique}. Donner un exemple d'un processus adiabatique réversible ainsi qu'un exemple d'un processus adiabatique irréversible.}
-Une transformation est dite \textbf{adiabatique} si elle est effectué sans échange de chaleur ($Q = 0$). Cela n'implique pas pour autant que la température du système reste constante. La variation d'énergie mécanique est le seul échange avec l'extérieur du système qui modifie alors les variables d'états ($T$, $V$ et $p$).
+\subsection{Donner la définition d'un processus \textit{adiabatique}. 
+Donner un exemple d'un processus adiabatique réversible ainsi qu'un exemple d'un processus adiabatique irréversible.}
+Un processus est dit \emph{adiabatique} si lors de ce processus le système n'échange pas de chaleur avec son environnement ($Q = 0$). 
+Cela n'implique pas pour autant que la température du système reste constante. 
+Par le premier principe, seul un travail mécanique peut encore modifier l'état du système.
 
-Le concept de \textbf{réversibilité} est idéal. L'expression énergétique du second principe de la thermodynamique, aussi appelé principe d'évolution, s'écrit 
-\begin{equation} Q + W_f = \int_1^2T dS \end{equation}
-où $dS$ est la différentielle de la fonction d'état entropie et $W_f$ le terme dissipatif. Dans la réalité ce terme ne sera jamais nul. 
+Une transformation est dite réversible si, partant d'un état donné, on pourrait la concevoir comme pouvant se produire indifféremment dans un sens ou dans l'autre.
+Le concept de réversibilité est idéal : en pratique, tout processus est irréversible.
+L'expression énergétique du second principe de la thermodynamique, aussi appelé principe d'évolution, s'écrit 
+\[ Q + W_\mathrm{f} = \int_1^2T \dif S \]
+où $\dif S$ est la différentielle de la fonction d'état entropie et $W_\mathrm{f}$ le terme dissipatif. 
+Dans la réalité ce terme ne sera jamais nul. 
 \begin{itemize}
-	\item Un processus \textbf{réversible} est un processus où $W_f = 0$. Un processus adiabatique réversible est donc aussi isentropique car $\delta Q/T = dS = 0$. Un exemple d'un tel processus se trouve dans le cycle de Carnot qui comprend une détente ainsi qu'une compression adiabatique réversible. Il est à noter que le cycle de Carnot est un cycle théorique.
-	\item Un processus \textbf{irréversible} est un processus où $W_f \neq 0$. On retrouve une détente adiabatique irréversible dans les cycle frigorifique. 
+	\item Dans le cas d'un processus \textbf{réversible} on a $W_\mathrm{f} = 0$. 
+		Un processus adiabatique réversible est donc aussi isentropique car $\dif S = \delta Q/T = 0$. 
+		Un exemple d'un tel processus se trouve dans le cycle de Carnot qui comprend une détente ainsi qu'une compression adiabatique réversible. 
+		Il est à noter que le cycle de Carnot est un cycle théorique.
+	\item Dans le cas d'un processus \textbf{irréversible} on a $W_\mathrm{f} > 0$.
+		On retrouve une détente adiabatique irréversible dans les cycles frigorifiques. 
 \end{itemize}
 
-\subsection{Donnez la définition mathématique ainsi que la signification physique des chaleurs massiques $c_p$ et $c_v$.}
-La capacité thermique massique $c$ correspond à la quantité d'énergie à apporter par échange thermique pour élever d''un kelvin la température de l'unité de masse d'une substance. C'est donc une grandeur intensive exprimé en joules par kilogramme-kelvin \si{\joule\per\kelvin\per\kilo\gram}. Si on note $U$ l'énergie interne, $H$ l'enthalpie et $m$ la masse d'un corps on a les capacités thermiques massiques :
-\begin{itemize}
-	\item à pression constante \begin{equation} c_p = \frac{1}{m}\left(\frac{\partial H}{\partial T}\right)_p \end{equation}
-	\item à volume constant \begin{equation} c_v = \frac{1}{m}\left(\frac{\partial U}{\partial T}\right)_V \end{equation}
-\end{itemize}
+\subsection{Donner la définition mathématique ainsi que la signification physique des chaleurs massiques $c_p$ et $c_v$.}
+Physiquement, la chaleur massique est l'action calorifique nécessaire pour obtenir un accroissement de température d'un degré Kelvin d'un kilo d'une substance considérée dans des conditions bien déterminées.
+Dans les transformations à pression ou volume constants, on note les chaleurs massiques $c_p$ et $c_v$, respectivement.
+Mathématiquement, la définition s'écrit
+\[ c_p \eqdef \lim_{\Delta T \to 0} \frac{Q_p}{\Delta T}, \qquad c_v \eqdef \lim_{\Delta T \to 0} \frac{Q_v}{\Delta T} \]
+où $Q_p$ et $Q_v$ désignent les actions calorifiques respectives nécessaires au relèvement $\Delta T$ de température à pression et à volume constant.
 
-\subsection{Donnez la définition de l'enthalpie libre $F$ de Helmholtz ainsi que de l'enthalpie libre $G$ de Gibbs. Écriver l'équation de Gibbs sous la forme de différentielle de $F$ ainsi que de $G$.}
+Par la définition, on peut écrire
+\begin{equation*}
+	\delta Q_v = c_v \dif T, \qquad \delta Q_p = c_p \dif T. 
+\end{equation*}
+Le premier principe nous donne la relation suivante
+\begin{equation*} 
+	\dif U + p \dif v = \dif H - v \dif p = \delta(Q + W_\mathrm{f}).
+\end{equation*}
+Dans le cas d'une transformation \emph{sans dissipation par frottements ($W_\mathrm{f} = 0$)} à volume constant, on a donc
+\[ \dif U = c_v \dif T, \qquad c_v = \thermodiff{U}{T}{v} \]
+et à pression constante,
+\[ \dif H = c_p \dif T, \qquad c_p = \thermodiff{H}{T}{p} \]
+
+\subsection{Donner la définition de l'énergie libre $F$ de Helmholtz ainsi que de l'enthalpie libre $G$ de Gibbs. 
+Écrire l'équation de Gibbs sous la forme de différentielle de $F$ ainsi que de $G$.}
+L'énergie libre de Helmholtz $F$ et l'enthalpie libre de Gibbs $G$ sont définies par
+\begin{align*}
+	F &\eqdef U - TS \\
+	G &\eqdef H - TS.
+\end{align*}
+On trouve immédiatement leurs différentielles :
+\begin{align*}
+	\dif F &= \dif U - T \dif S - S \dif T \\
+	\dif G &= \dif H - T \dif S - S \dif T.
+\end{align*}
+L'équation de Gibbs est la relation
+\[ T \dif S = \dif U + p \dif v = \dif H - v \dif p \]
+qui permet d'obtenir
+\begin{align*}
+	\dif F &= - p \dif v - S \dif T \\
+	\dif G &= v \dif p - S \dif T.
+\end{align*}
+
+\iffalse % Interesting, but does not answer the question
 \paragraph{L'énergie libre $F$ de Helmholtz} est une fonction d'état extensive dont la variation permet d'obtenir le travail utile susceptible d'être fourni par un système fermé, à température constante, au cours d'une transformation réversible. 
 Considérons un système thermodynamique (fermé) évoluant d'un état 1 à un état 2, transformation que l'on suppose totalement réversible ($W_f = 0$) et à température constante $T$. Le premier principe de la thermodynamique s'exprime par :
 \begin{equation} \Delta U + \Delta K + g\Delta z = Q + \underline{W_e} \end{equation}
@@ -52,62 +100,170 @@ On définit alors
 \paragraph{Forme différentielle de G}
 \begin{equation} \left.\begin{array}{ll} dG &= d(H-TS) = dH - TdS - SdT \\ dH &= Vdp + TdS \end{array}\right\} \Rightarrow dG = Vdp - SdT \label{eq:gibbs-duhem}\end{equation}
 
-\subsection{Dérivez l'équation $\alpha = p\beta K$.}
-Les variables d'état $p$, $v$ et $T$ d'un fluide sont liées par l'équation d'état, que l'on peut écrire sous forme du système différentiel :
-\begin{equation}\begin{pmatrix} dp \\ dv \\ dT \end{pmatrix} = \begin{pmatrix} 0 & \left(\frac{\partial p}{\partial v}\right)_T & \left(\frac{\partial p}{\partial T}\right)_v \\ \left(\frac{\partial v}{\partial p}\right)_T & 0 & \left(\frac{\partial v}{\partial T}\right)_p \\ \left(\frac{\partial T}{\partial p}\right)_v & \left(\frac{\partial T}{\partial v}\right)_p & 0 \end{pmatrix}\begin{pmatrix} dp \\ dv \\ dT \label{eq:matetat}\end{pmatrix}\end{equation}
+\fi
+
+\subsection{Dériver l'équation $\alpha = p\beta \kappa$.}
+Les variables d'état $p$, $v$ et $T$ d'un fluide sont liées par une équation d'état, que l'on peut écrire sous forme du système différentiel :
+\[
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix} = 
+	\begin{pmatrix}
+		0 & \thermodiff{p}{v}{T} & \thermodiff{p}{T}{v} \\
+		\thermodiff{v}{p}{T} & 0 & \thermodiff{v}{T}{p} \\
+		\thermodiff{T}{p}{v} & \thermodiff{T}{v}{p} & 0
+	\end{pmatrix}
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix} 
+\]
 On définit les coefficients suivants :
 \begin{itemize}
-	\item le coefficient de dilatation isobare $\alpha \triangleq \frac{1}{v}\left(\frac{\partial v}{\partial T}\right)_p$
-	\item le coefficient de dilatation isochore $\beta \triangleq \frac{1}{p}\left(\frac{\partial p}{\partial T}\right)_v$
-	\item le coefficient de compressibilité isotherme $K \triangleq -\frac{1}{v}\left(\frac{\partial v}{\partial p}\right)_T$
+	\item le coefficient de dilatation isobare
+		$ \alpha \eqdef \frac{1}{v} \thermodiff{v}{T}{p} $ ;
+	\item le coefficient de dilatation isochore
+		$ \beta \eqdef \frac{1}{p} \thermodiff{p}{T}{v} $ ;
+	\item le coefficient de compressibilité isotherme
+		$ \kappa \eqdef -\frac{1}{v} \thermodiff{v}{p}{T} $.
 \end{itemize}
-Le système \ref{eq:matetat} peut se réécrire sous la forme :
-\begin{equation}\begin{pmatrix} dp \\ dv \\ dT \end{pmatrix} = \begin{pmatrix} 0 & -\frac{1}{Kv} & \beta p \\ -Kv & 0 & \alpha v \\ \frac{1}{\beta p} & \frac{1}{\alpha v} & 0 \end{pmatrix}\begin{pmatrix} dp \\ dv \\ dT \end{pmatrix} \label{eq:fe_matrix}\end{equation}
+Grâce à ces coefficients, on peut réécrire le système :
+\[
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix} = 
+	\begin{pmatrix}
+		0 & -\frac{1}{\kappa v} & \beta p \\
+		-\kappa v & 0 & \alpha v \\
+		\frac{1}{\beta p} & \frac{1}{\alpha v} & 0
+	\end{pmatrix}
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix} 
+\]
 On trouve l'équation recherchée à l'aide des variations de deux des trois variables d'état: 
-\begin{equation} dp = -\frac{1}{Kv}dv + \beta p dT \label{eq:dp}\end{equation}
-\begin{equation} dv = -Kv dp +  \alpha v dT \label{eq:dv}\end{equation}
-En remplacant le terme $dv$ dans l'équation \ref{eq:dp} par l'équation \ref{eq:dv} on obtient :
-\begin{equation} dp = dp - \frac{\alpha}{K}dT + \beta p dT \qquad\Rightarrow\qquad \alpha = p\beta K\end{equation}
-Cette équation nous permet de conclure que l'équation d'état d'une substance est déterminée par la connaissance de deux des trois coefficients caractéristiques $\alpha$, $\beta$ ou $K$.
+\begin{align*}
+	\dif p &= -\frac{1}{\kappa v} \dif v + \beta p \dif T \\
+	\dif v &= -\kappa v \dif p + \alpha v \dif T
+\end{align*}
+En remplaçant l'expression de $\dif v$ dans l'expression de $\dif p$, on obtient
+\[ \dif p = \dif p - \frac{\alpha}{\kappa} \dif T + \beta p \dif T \]
+d'où on tire $ \alpha = p \beta \kappa $.
+L'équation d'état d'une substance est donc complètement déterminée par la connaissance de deux des trois coefficients $\alpha$, $\beta$ ou $\kappa$.
 
-\subsection{Démontrez que les expressions \ref{eq:q6_1} sont valables pour toutes les espèces.}
-\begin{equation} \left(\frac{\partial T}{\partial p}\right)_S = \left(\frac{\partial v}{\partial S}\right)_p, \qquad \left(\frac{\partial S}{\partial p}\right)_T = - \left(\frac{\partial v}{\partial T}\right)_p \label{eq:q6_1}\end{equation}
-Toutes les fonctions d'état peuvent être exprimées en fonction de deux des trois variables d'état $p$, $v$ et $T$. Il en va de même pour l'entropie pour laquelle le système différentiel s'écrit :
-\begin{equation}\begin{pmatrix}TdS\\TdS\\TdS\end{pmatrix} = \begin{pmatrix}0 & l_T & c_v \\ h_T & 0 & c_p \\ h_v & l_p & 0\end{pmatrix}\begin{pmatrix}dp\\dv\\dT\end{pmatrix} \end{equation}
-On introduit ainsi quatre coefficients calorifiques $l_T$, $h_T$, $h_v$ et $l_p$ qui peuvent s'exprimer en fonction des coefficients calorifiques $c_p$ et $c_v$, et des coefficients de dilatation $\alpha$ et $\beta$ :
-\begin{equation} h_v = \frac{c_v}{\beta p}, \qquad l_p = \frac{c_p}{\alpha v}, \qquad h_T = \frac{c_v-c_p}{\beta p}, \qquad l_T = \frac{c_p-c_v}{\alpha v}.\end{equation}
-La substitution des expressions dans le système différentiel fournit la matrice $S'$ des dérivées partielles de l'entropie :
-\begin{equation} S' = \begin{pmatrix} 0 & \frac{c_p-c_v}{\alpha vT} & \frac{c_v}{T} \\ \frac{c_v-c_p}{\beta pT} & 0 & \frac{c_p}{T} \\ \frac{c_v}{\beta pT} & \frac{c_p}{\alpha vT} & 0 \end{pmatrix} \end{equation}
-Si on prend la deuxième ligne de ce système, on a :
-\begin{equation} dS = \frac{c_v-c_p}{\beta pT}dp + \frac{c_p}{T}dT \qquad \Leftrightarrow \qquad \left(\frac{\partial T}{\partial p}\right)_S = \frac{c_p-c_v}{c_p\beta p} \end{equation}
-Si on prend la troisième ligne de ce système, on a :
-\begin{equation} dS = \frac{c_v}{\beta pT}dp + \frac{c_p}{\alpha vT}dv \qquad \Leftrightarrow \qquad \left(\frac{\partial v}{\partial S}\right)_p = \frac{\alpha vT}{c_p} \end{equation}
-De la matrice \ref{eq:fe_matrix} on a :
-\begin{equation} dv = -Kv dp + \alpha v dT \qquad \Leftrightarrow \qquad \left(\frac{\partial v}{\partial T}\right)_p = \alpha v \end{equation}
-Avec la relation $c_p-c_v = \alpha\beta pvT$, on trouve finalement :
-\begin{equation} \left(\frac{\partial T}{\partial p}\right)_S = \frac{c_p-c_v}{c_p\beta p} = \frac{\alpha vT}{c_p} = \left(\frac{\partial v}{\partial S}\right)_p \end{equation}
-\begin{equation} \left(\frac{\partial S}{\partial p}\right)_T = \frac{c_v-c_p}{\beta pT} = \alpha v = \left(\frac{\partial v}{\partial T}\right)_p \end{equation}
+\subsection{Démontrer que les relations suivantes sont valables pour toutes les espèces.}
+\[ \thermodiff{T}{p}{S} = \thermodiff{v}{S}{p}, \qquad
+	\thermodiff{S}{p}{T} = -\thermodiff{v}{T}{p} \]
 
-\subsection{Dérivez l'équation $c_p-c_v = \alpha\beta pvT$.\label{q:1_7}}
-On part des équations de Gibbs (énergie libre de Helmholtz et enthalpie libre de Gibbs) :
-\begin{equation} \begin{cases} F &= U-TS \\ G &= H-TS \end{cases} \qquad \Rightarrow \qquad \begin{cases} dF &= -pdv - SdT \\ dG &= vdp - SdT \end{cases} \end{equation}
-Ces différentielles correspondent aux expressions des dérivées partielles suivantes :
-\begin{equation} \left(\frac{\partial F}{\partial v}\right)_T = -p \qquad \left(\frac{\partial F}{\partial T}\right)_v = -S \qquad \left(\frac{\partial G}{\partial p}\right)_T = v \qquad \left(\frac{\partial G}{\partial T}\right)_p = -S \end{equation}
-Soit un potentiel thermodynamique $\Phi$ étant présumé au moins deux fois dérivable par rapport à chacune de ses variables. Le \textbf{théorème de Schwarz}\footnote{\url{https://fr.wikipedia.org/wiki/Th\%C3\%A9or\%C3\%A8me_de_Schwarz}} implique que pour tout couple de variable $x_i$ et $x_j$ :
-\begin{equation} \left(\frac{\partial}{\partial x_i}\left(\frac{\partial \Phi}{\partial x_j}\right)_{x_{k\neq j}}\right)_{x_{k\neq i}} = \left(\frac{\partial}{\partial x_j}\left(\frac{\partial \Phi}{\partial x_i}\right)_{x_{k\neq i}}\right)_{x_{k\neq j}} \end{equation}
-Si on applique le théorème de Schwarz, on obtient :
-\begin{equation} \frac{\partial^2F}{\partial T\partial v} = -\left(\frac{\partial p}{\partial T}\right)_v = -\beta p , \qquad \frac{\partial^2F}{\partial v\partial T} = -\left(\frac{\partial S}{\partial v}\right)_T = -\frac{c_p-c_v}{\alpha vT} \end{equation}
-\begin{equation} \frac{\partial^2G}{\partial T\partial p} = \left(\frac{\partial v}{\partial T}\right)_p = \alpha v , \qquad \frac{\partial^2G}{\partial p\partial T} = -\left(\frac{\partial S}{\partial p}\right)_T = -\frac{c_v-c_p}{\beta vT} \end{equation}
-Ce qui entraîne la propriété liant entre elles les chaleurs massique $c_p$ et $c_v$ :
-\begin{equation} c_p-c_v = \alpha\beta pvT \label{eq:relation_chaleur}\end{equation}
+On part de l'équation de Gibbs sous la forme de différentielle de $H$ et $G$ :
+\begin{align*}
+	\dif H &= T \dif S + v \dif p \\
+	\dif G &= v \dif p - S \dif T
+\end{align*}
+qui nous donne les dérivées partielles suivantes
+\[ \begin{matrix}
+	\thermodiff{H}{S}{p} = T & \thermodiff{H}{p}{S} = v \\
+	\thermodiff{G}{p}{T} = v & \thermodiff{G}{T}{p} = -S
+\end{matrix} \]
+Par le théorème de Schwarz
+\footnote{Si $f$ est deux fois dérivable en un point, alors sa matrice hessienne y est symétrique}
+appliqué aux dérivées partielles de $H$ et $G$ :
+\begin{align*}
+	\pdv{H}{S}{p} &= \pdv{H}{p}{S} \\
+	\pdv{G}{T}{p} &= \pdv{G}{p}{T}
+\end{align*}
+on trouve les relations recherchées :
+\begin{align}
+	%\thermodiff{T}{v}{S} &= -\thermodiff{p}{S}{v} \\
+	\thermodiff{T}{p}{S} &= \thermodiff{v}{S}{p} \notag \\
+	\thermodiff{v}{T}{p} &= -\thermodiff{S}{p}{T}.
+\end{align}
 
-\subsection{Dérivez l'équation \ref{eq:q8}}
-\begin{equation} l_T = \frac{c_p-c_v}{\alpha v} \label{eq:q8}\end{equation}
-Toutes les fonctions d'état peuvent être exprimées en fonction de deux des trois variables d'état $p$, $v$ et $T$. Il en va de même pour l'entropie pour laquelle le système différentiel s'écrit :
-\begin{equation}\begin{pmatrix}TdS\\TdS\\TdS\end{pmatrix} = \begin{pmatrix}0 & l_T & c_v \\ h_T & 0 & c_p \\ h_v & l_p & 0\end{pmatrix}\begin{pmatrix}dp\\dv\\dT\end{pmatrix} \end{equation}
-En remplacant la variation de température $dT$ dans la première et seconde équations du système par 
-\begin{equation} dT = \frac{1}{\beta p}dp + \frac{1}{\alpha v}dv \end{equation}
-on obtient :
-\begin{equation}\begin{pmatrix}TdS\\TdS\\TdS\end{pmatrix} = \begin{pmatrix}\frac{c_v}{\beta p} & l_T + \frac{c_v}{\alpha v} & 0\\ h_T + \frac{c_p}{\beta p} & \frac{c_p}{\alpha v} & 0 \\ h_v & l_p & 0\end{pmatrix}\begin{pmatrix}dp\\dv\\dT\end{pmatrix} \end{equation}
-L'identification des trois équations de ce système permet d'exprimer les quatres nouveaux coefficients calorifiques en fonction des seuls coefficients calorifiques $c_p$ et $c_v$, et des coefficients de dilatation $\alpha$ et $\beta$ :
-\begin{equation} h_v = \frac{c_v}{\beta p}, \qquad l_p = \frac{c_p}{\alpha v}, \qquad h_T = \frac{c_v-c_p}{\beta p}, \qquad l_T = \frac{c_p-c_v}{\alpha v}.\end{equation}
+\subsection{Dériver l'équation $c_p-c_v = \alpha\beta pvT$.\label{q:1_7}}
+On part de l'équation de Gibbs
+\[ T \dif S = \dif U + p \dif v \]
+La différentielle de $U$ peut s'écrire de trois manières différentes :
+\[
+	\begin{pmatrix} \dif U \\ \dif U \\ \dif U \end{pmatrix} = 
+	\begin{pmatrix}
+		0 & \thermodiff{U}{v}{T} & \thermodiff{U}{T}{v} \\
+		\thermodiff{U}{p}{T} & 0 & \thermodiff{U}{T}{p} \\
+		\thermodiff{U}{p}{v} & \thermodiff{U}{v}{p} & 0
+	\end{pmatrix}
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix}
+\]
+On peut donc exprimer $T\dif S$ de trois manières différentes :
+\[ 
+	\begin{pmatrix} T \dif S \\ T \dif S \\ T \dif S \end{pmatrix} = 
+	\begin{pmatrix}
+		0 & \thermodiff{U}{v}{T} + p & \thermodiff{U}{T}{v} \\
+		\thermodiff{U}{p}{T} & p & \thermodiff{U}{T}{p} \\
+		\thermodiff{U}{p}{v} & \thermodiff{U}{v}{p} + p & 0
+	\end{pmatrix}
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix}
+\]
+On annule le second terme de la diagonale avec $ \dif v = \thermodiff{v}{p}{T} \dif p + \thermodiff{v}{T}{p} \dif T $ :
+\[ 
+	\begin{pmatrix} T \dif S \\ T \dif S \\ T \dif S \end{pmatrix} = 
+	\begin{pmatrix}
+		0 & \thermodiff{U}{v}{T} + p & \thermodiff{U}{T}{v} \\
+		\thermodiff{U}{p}{T} + p \thermodiff{v}{p}{T} & 0 & \thermodiff{U}{T}{p} + p \thermodiff{v}{T}{p} \\
+		\thermodiff{U}{p}{v} & \thermodiff{U}{v}{p} + p & 0
+	\end{pmatrix}
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix}
+\]
+Par introduction de nouveaux coefficients calorifiques, on note
+\[ 
+	\begin{pmatrix} T \dif S \\ T \dif S \\ T \dif S \end{pmatrix} = 
+	\begin{pmatrix}
+		0	& l_T	& c_v	\\
+		h_T	& 0		& c_p	\\
+		h_v	& l_p	& 0
+	\end{pmatrix}
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix}
+\]
+où on définit ces coefficients :
+\begin{itemize}
+	\item coefficient calorifique de dilatation à température constante :
+		\[ l_T = \thermodiff{U}{v}{T} + p = \thermodiff{H}{v}{T} - v \thermodiff{p}{v}{T} \]
+	\item coefficient calorifique de compressbilité à température constante :
+		\[ h_T = \thermodiff{U}{p}{T} + p \thermodiff{v}{p}{T} = \thermodiff{H}{p}{T} - v \]
+	\item coefficient calorifique de compressibilité sous volume constant :
+		\[ h_v = \thermodiff{U}{p}{v} = \thermodiff{H}{p}{v} - v \]
+	\item coefficient calorifique de dilatation sous pression constante :
+		\[ l_p = \thermodiff{U}{v}{p} + p = \thermodiff{H}{v}{p} \]
+\end{itemize}
+On annule la dernière colonne avec $ \dif T = \thermodiff{T}{p}{v} \dif p + \thermodiff{T}{v}{p} \dif v = \frac{1}{\beta p} \dif p + \frac{1}{\alpha v} \dif T $ :
+\[ 
+	\begin{pmatrix} T \dif S \\ T \dif S \\ T \dif S \end{pmatrix} = 
+	\begin{pmatrix}
+		\frac{c_v}{\beta p}			& l_T + \frac{c_v}{\alpha v}	& 0	\\
+		h_T + \frac{c_p}{\beta p}	& \frac{c_p}{\alpha v}			& 0	\\
+		h_v							& l_p							& 0
+	\end{pmatrix}
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix}
+\]
+Par identification des coefficients, on peut exprimer les coefficients $l_T$, $h_T$, $h_v$ et $l_p$ en fonction des chaleurs massiques $c_p$ et $c_v$ et des coefficients de dilatation $\alpha$ et $\beta$ :
+\[
+	l_T = \frac{c_p-c_v}{\alpha v} \qquad
+	h_T = \frac{c_v-c_p}{\beta p} \qquad
+	h_v = \frac{c_v}{\beta p} \qquad
+	l_p = \frac{c_p}{\alpha v}
+\]
+On peut alors exprimer les dérivées partielles de l'entropie en fonction de $\alpha$, $\beta$, $c_p$ et $c_v$ uniquement :
+\[
+	\begin{pmatrix}
+		0						& \thermodiff{S}{v}{T}	& \thermodiff{S}{T}{v}	\\
+		\thermodiff{S}{p}{T}	& 0						& \thermodiff{S}{T}{p}	\\
+		\thermodiff{S}{p}{v}	& \thermodiff{S}{v}{p}	& 0
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		0							& \frac{c_p-c_v}{\alpha v T}	& \frac{c_v}{T}	\\
+		\frac{c_v-c_p}{\beta p T}	& 0								& \frac{c_p}{T}	\\
+		\frac{c_v}{\beta p T}		& \frac{c_p}{\alpha v T}		& 0
+	\end{pmatrix}
+\]
+Le théorème de Schwarz appliqué aux dérivées partielles de $G$ nous donne la relation
+\[ \thermodiff{v}{T}{p} = - \thermodiff{S}{p}{T} \]
+En exprimant ces différentielles par les coefficient calorifiques, on trouve
+\begin{align*}
+	\alpha v &= \frac{c_p - c_v}{\beta p T} \\
+	c_p - c_v &= \alpha \beta p v T
+\end{align*}
+Il résulte de ces considérations que les fonctions d'état peuvent se calculer si on connait deux des trois coefficients physiques $\alpha$, $\beta$, $\kappa$ et la chaleur massique $c_p$ (ou $c_v$).
+
+\subsection{Dériver l'équation $l_T = \frac{c_p-c_v}{\alpha v}$.}
+Le développement pour cette question est un sous-ensemble de la réponse à la question précédente.
+

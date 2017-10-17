@@ -1,6 +1,8 @@
 \documentclass[fr]{../../../eplnotes}
 \usepackage{../../../eplunits}
 \usepackage{pgfplots}
+\usepackage{physics}
+
 \pgfplotsset{compat=newest}
 \usepgfplotslibrary{fillbetween}
 \usetikzlibrary{external}
@@ -10,11 +12,16 @@
 \tikzexternalize[prefix=figures/]
 \numberwithin{equation}{section}
 
-\hypertitle{thermo-MECA1855}{5}{MECA}{1855}
-{Adrien Couplet}%\and Marie-Pierre van Oldeneel}
+% Macros
+\newcommand{\thermodiff}[3]{\left(\pdv{#1}{#2}\right)_{#3}} % Thermodynamic differential
+
+\hypertitle{Thermodynamique et Énergétique}{5}{MECA}{1855}
+{Adrien Couplet \and Mattéo Couplet}
 {Miltiadis Papalexandris et Yann Bartosiewicz}[
-\paragraph{Remarque} Ce document a pour objectif de rassembler et de répondre en détails aux questions de théorie du cours en vue
-de l’examen. Celles-ci ont soit été fournies par M. Papalexandris sur Moodle, soit proviennent d'anciens examens. Le document suppose une compréhension préalable de la matière et ne fait office ni de synthèse, ni de syllabus.]
+\paragraph{Remarque des auteurs} 
+Ce document a pour objectif de rassembler et de répondre en détails aux questions de théorie du cours en vue de l’examen.
+Celles-ci ont soit été fournies par M. Papalexandris sur Moodle, soit proviennent d'anciens examens.
+Le document suppose une compréhension préalable de la matière et ne fait office ni de synthèse, ni de syllabus.]
 
 \include{parts/01_intro}
 \include{parts/02_gaz_ideaux}
