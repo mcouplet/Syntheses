@@ -1,72 +1,121 @@
-\section{Questions sur le chapitre ``Gaz idéaux''}
-\paragraph{Remarque} On appelle gaz parfait un gaz idéal dont les chaleurs massiques $c_p$ et $c_v$ sont constantes.
-\subsection{Démontrez que l'entropie d'un gaz idéal est donnée par l'expression \ref{eq:2q1}.}
-\begin{equation} s = s_0(T_0) - R_g\ln{\frac{p}{p_0}} + \int_{T_0}^T c_p\frac{dT}{T} = s_0(T_0) + R_g\ln{\frac{\rho_0}{\rho}} + \int_{T_0}^T c_v\frac{dT}{T} \label{eq:2q1}\end{equation}
-Dans le cas des gaz idéaux, on peut utiliser une équation d'état très simple, déduite des expériences de Boyle Mariotte et de Gay-Lussac. Celles-ci ont permis d'attribuer aux coefficients de dilatation les valeurs suivantes :
-\begin{equation} \alpha = \frac{1}{T} \qquad \beta = \frac{1}{T} \qquad K = \frac{1}{p} \label{eq:coef_ideaux}\end{equation}
-L'équation d'état peut alors s'écrire :
-\begin{equation} pv = RT \qquad \text{avec } R = \frac{R_u}{M_m} = \frac{8.314}{M_m} \, \left[\si{\kilo\joule\per\kilo\gram\per\kelvin}\right] \end{equation}
-où $R$ est la constante massique du gaz, $R_u$ la constante universele des gaz parfaits et $M_m$ la masse molaire. Dans ces conditions, la relation \ref{eq:relation_chaleur} devient :
-\begin{equation} c_p-c_v = \alpha\beta pvT = R\end{equation}
-Suite à cette propriété, la matrice $S'$ prend la forme :
-\begin{equation} S' = \begin{pmatrix}0 & \frac{R}{v} & \frac{c_v}{T} \\ -\frac{R}{p} & 0 & \frac{c_p}{T} \\ \frac{c_v}{p} & \frac{c_p}{v} & 0 \end{pmatrix} \label{eq:matriceSideal}\end{equation}
-La première équation de ce système nous donne l'expression :
-\begin{equation} dS = R\frac{dv}{v} + c_v\frac{dT}{T} \end{equation}
-Après intégration, on obtient :
-\begin{equation} s = s_0(T_0) + R\ln{\frac{v}{v_0}} + \int_{T_0}^T c_v\frac{dT}{T} \end{equation}
-avec $v = \frac{1}{\rho}$ :
-\begin{equation} s_0(T_0) + R\ln{\frac{\rho_0}{\rho}} + \int_{T_0}^T c_v\frac{dT}{T} \end{equation}
-De la même manière on a pour la deuxième équation du système :
-\begin{equation} dS = -R\frac{dp}{p} + c_p\frac{dT}{T} \end{equation}
-Ce qui nous donne après intégration :
-\begin{equation} s = s_0(T_0) - R_g\ln{\frac{p}{p_0}} + \int_{T_0}^T c_p\frac{dT}{T} \end{equation}
+\section{Gaz idéaux}
+\subsection{Démontrer que l'entropie d'un gaz idéal est donnée par l'expression suivante}
+\[ s = s_0(T_0) - R_g \ln\frac{p}{p_0} + \int_{T_0}^T c_p \frac{\dif T}{T}
+	=  s_0(T_0) + R_g \ln\frac{\rho_0}{\rho} + \int_{T_0}^T c_v \frac{\dif T}{T}
+\]
 
-\subsection{Donnez l'expression de variation d'entropie quand on chauffe un gaz idéal de $T_i$ jusqu'à $T_f$ sous pression constante. Donnez également l'expression de variation d'entropie quand l'élévation de température est effectuée sous volume constant. Lequel des deux processus donne la plus grande augmentation d'entropie ?\label{q:2_2}}
-On reprend la matrice $S'$ de \ref{eq:matriceSideal}. À pression constante la première équation du système devient 
-\begin{equation} dS = -R\frac{dp}{p} + c_p\frac{dT}{T} = c_p\frac{dT}{T} \end{equation}
-Sous l'hypothèse que le gaz considéré est un gaz parfait ($c_p$ constant), cette relation s'intègre immédiatement pour obtenir l'expression de variation d'entropie quand on chauffe un gaz idéal de $T_i$ jusqu'à $T_f$ sous pression constante :
-\begin{equation} \Delta S = c_p\ln{\frac{T_f}{T_i}} \qquad \text{ou} \qquad \frac{T_f}{T_i} = \exp\left(\frac{\Delta S}{c_p}\right) \label{eq:isobare_ideal}\end{equation}
-À volume constant la deuxième équation du système devient
-\begin{equation} dS = R\frac{dv}{v} + c_v\frac{dT}{T} = c_v\frac{dT}{T} \end{equation}
-Sous l'hypothèse que le gaz considéré est un gaz parfait ($c_v$ constant), cette relation s'intègre immédiatement pour obtenir l'expression de variation d'entropie quand on chauffe un gaz idéal de $T_i$ jusqu'à $T_f$ sous volume constant :
-\begin{equation} \Delta S = c_v\ln{\frac{T_f}{T_i}} \qquad \text{ou} \qquad \frac{T_f}{T_i} = \exp\left(\frac{\Delta S}{c_v}\right) \label{eq:isochore_ideal}\end{equation}
-Le diagramme ($T$,$S$) (Figure \ref{fig:TS_gaz_parfait}) est constitué du réseau des isobares et des isochores, réseau obtenu par translation horizontale d'une isobare et d'une isochore arbitraire, soit celles passant par l'origine conventionnelle ($T_0 = \SI{0}{\kelvin}$, $S_0 = \SI{0}{\kilo\joule\per\kilo\gram\per\kelvin}$). On observe sur le diagramme que les isochores ont une pente plus élevée que les isobares, car $c_p > c_v$. À conditions initiales égales \textbf{le processus isobare donnera une plus grande augmentation d'entropie que le processus isochore}. 
-On ne manquera pas de noter que la levée des approximations $c_v = C^\text{te}$ et $c_p = C^\text{te}$ utilisées pour intégrer facilement l'expression de la variation d'entropie n'affecte l'allure générale des courbes isochores et isobares que dans la mesure de la variation relative des chaleurs massiques, et cette variation reste modérée pour des intervalles restreints de température.
-\begin{figure}[p]\centering
-	\tikzsetnextfilename{TS_gaz_parfait}
-    \begin{tikzpicture}
-        \begin{axis}[enlargelimits=true,grid=major,ylabel=$T\;(\si{\kelvin})$,xlabel=$S\;(\si{\joule\per\kilo\gram\per\kelvin})$,xticklabels={,,},yticklabels={,,},extra y ticks=273.15,
-    extra y tick style={grid=major, grid style={black}},
-    extra y tick labels={$T_0$},
-    extra x ticks=159,
-    extra x tick style={grid=major, grid style={black}},
-    extra x tick labels={$S_0$}]
-            \addplot [blue,domain=253.15:373.15,samples=200] ({159 + 1004*ln(x/273.15)},x);
-            \addplot [red,domain=253.15:373.15,samples=200] ({159 + 405*ln(x/273.15)},x);
-            \addplot [blue,dashed,domain=253.15:373.15,samples=200] ({200 + 1004*ln(x/273.15)},x);
-            \addplot [red,dashed,domain=253.15:373.15,samples=200] ({100 + 405*ln(x/273.15)},x);
-            \legend{$dp = 0$,$dv = 0$}
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Diagramme ($T$,$S$) d'un gaz parfait}
-    \label{fig:TS_gaz_parfait}
-\end{figure}
+La forme particulière de l'équation d'état du gaz idéal $pv = RT$ permet d'écrire les égalités suivantes :
+\begin{align*}
+	\alpha &\eqdef \frac{1}{v}\thermodiff{v}{T}{p} = \frac{p}{RT}\frac{R}{p} = \frac{1}{T}; \\
+	\beta  &\eqdef \frac{1}{p}\thermodiff{p}{T}{v} = \frac{v}{RT}\frac{R}{v} = \frac{1}{T},
+\end{align*}
+dont on déduit la forme simple de la relation reliant les chaleurs massiques :
+\[ c_p - c_v = \alpha\beta p v T = R. \]
+On peut reprendre les expressions de la différentielle de l'entropie qui peuvent s'écrire
+comme suit:
+\[
+	\begin{pmatrix} \dif S \\ \dif S \\ \dif S \end{pmatrix} 
+	= 
+	\begin{pmatrix}
+		0 & \beta p & \frac{c_v}{T} \\
+		-\alpha v & 0 & \frac{c_p}{T} \\
+		\frac{c_v}{\beta p T} & \frac{c_p}{\alpha v T} & 0
+	\end{pmatrix}
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix}
+	=
+	\begin{pmatrix}
+		0 & \frac{R}{v} & \frac{c_v}{T} \\
+		-\frac{R}{p} & 0 & \frac{c_p}{T} \\
+		\frac{c_v}{p} & \frac{c_p}{v} & 0
+	\end{pmatrix}
+	\begin{pmatrix} \dif p \\ \dif v \\ \dif T \end{pmatrix}
+\]
+La première équation de ce système nous donne l'expression
+\[ \dif S = R\frac{\dif v}{v} + c_v\frac{\dif T}{T} \]
+qu'on intègre de $T_0$ à $T$ pour obtenir
+\[ s = s_0(T_0) + R\ln\frac{v}{v_0} + \int_{T_0}^T c_v\frac{\dif T}{T}
+	 = s_0(T_0) + R\ln\frac{\rho_0}{\rho} + \int_{T_0}^T c_v\frac{\dif T}{T}. \]
+La seconde équation nous donne l'expression
+\[ \dif S = -R\frac{\dif p}{p} + c_p \frac{\dif T}{T} \]
+qu'on intègre de $T_0$ à $T$ pour obtenir
+\[ s = s_0(T_0) - R\ln\frac{p}{p_0} + \int_{T_0}^T c_p\frac{\dif T}{T}. \]
 
-\subsection{Définissez la transformation polytropique et établissez-en les équations appliquées au gaz idéal.}
-On appelle transformation polytropique une transformation dans laquelle est respectée l'une des relations :
-\begin{equation} \frac{dH}{TdS} = \Psi = C^\text{te} \qquad \frac{dU}{TdS} = \Phi = C^\text{te} \end{equation}
-On notera que le rapport entre les coefficients $\Psi$ et $\Phi$ est constant et que le respect d'une des relations entraîne nécessairement celui de l'autre puisque l'on peut écrire :
-\begin{equation} \frac{\Psi}{\Phi} = \frac{dH}{dU} = \frac{c_p}{c_v} = \gamma \end{equation}
-où le quotient $\gamma$ est le \textbf{coefficient de Poisson}, propriété intrinsèque du gaz considéré. Dans le plan ($T$,$S$) du gaz idéal, l'équation de la transformation polytropique se déduit de sa définition même en y explicitant $dU$ ou $dH$ :
-\begin{equation} dU = c_vdT = \Phi TdS \qquad \text{ou} \qquad dH = c_pdT = \Psi TdS \end{equation}
+\subsection{Donner l'expression de variation d'entropie
+quand on chauffe un gaz idéal de $T_i$ jusqu'à $T_f$ sous pression constante.
+Donner également l'expression de variation d'entropie quand l'élévation de température
+est effectuée sous volume constant.
+Lequel des deux processus donne la plus grande augmentation d'entropie ?\label{q:2_2}}
+À pression constante :
+\[ \Delta S_p = \int_{T_i}^{T_f} c_p \frac{\dif T}{T}. \]
+À volume constant :
+\[ \Delta S_v = \int_{T_i}^{T_f} c_v \frac{\dif T}{T} 
+= \int_{T_i}^{T_f} (c_p-R) \frac{\dif T}{T} = \Delta S_p - R\ln\frac{T_f}{T_i} \]
+Si $T_f > T_i$, on voit que le processus à pression constante produira une plus grande
+variation d'entropie que le processus à volume constant.
+
+\iffalse
+	On reprend la matrice $S'$ de \ref{eq:matriceSideal}. À pression constante la première équation du système devient 
+	\begin{equation} dS = -R\frac{dp}{p} + c_p\frac{dT}{T} = c_p\frac{dT}{T} \end{equation}
+	Sous l'hypothèse que le gaz considéré est un gaz parfait ($c_p$ constant), cette relation s'intègre immédiatement pour obtenir l'expression de variation d'entropie quand on chauffe un gaz idéal de $T_i$ jusqu'à $T_f$ sous pression constante :
+	\begin{equation} \Delta S = c_p\ln{\frac{T_f}{T_i}} \qquad \text{ou} \qquad \frac{T_f}{T_i} = \exp\left(\frac{\Delta S}{c_p}\right) \label{eq:isobare_ideal}\end{equation}
+	À volume constant la deuxième équation du système devient
+	\begin{equation} dS = R\frac{dv}{v} + c_v\frac{dT}{T} = c_v\frac{dT}{T} \end{equation}
+	Sous l'hypothèse que le gaz considéré est un gaz parfait ($c_v$ constant), cette relation s'intègre immédiatement pour obtenir l'expression de variation d'entropie quand on chauffe un gaz idéal de $T_i$ jusqu'à $T_f$ sous volume constant :
+	\begin{equation} \Delta S = c_v\ln{\frac{T_f}{T_i}} \qquad \text{ou} \qquad \frac{T_f}{T_i} = \exp\left(\frac{\Delta S}{c_v}\right) \label{eq:isochore_ideal}\end{equation}
+	Le diagramme ($T$,$S$) (Figure \ref{fig:TS_gaz_parfait}) est constitué du réseau des isobares et des isochores, réseau obtenu par translation horizontale d'une isobare et d'une isochore arbitraire, soit celles passant par l'origine conventionnelle ($T_0 = \SI{0}{\kelvin}$, $S_0 = \SI{0}{\kilo\joule\per\kilo\gram\per\kelvin}$). On observe sur le diagramme que les isochores ont une pente plus élevée que les isobares, car $c_p > c_v$. À conditions initiales égales \textbf{le processus isobare donnera une plus grande augmentation d'entropie que le processus isochore}. 
+	On ne manquera pas de noter que la levée des approximations $c_v = C^\text{te}$ et $c_p = C^\text{te}$ utilisées pour intégrer facilement l'expression de la variation d'entropie n'affecte l'allure générale des courbes isochores et isobares que dans la mesure de la variation relative des chaleurs massiques, et cette variation reste modérée pour des intervalles restreints de température.
+	\begin{figure}[p]\centering
+		\tikzsetnextfilename{TS_gaz_parfait}
+		\begin{tikzpicture}
+			\begin{axis}[enlargelimits=true,grid=major,ylabel=$T\;(\si{\kelvin})$,xlabel=$S\;(\si{\joule\per\kilo\gram\per\kelvin})$,xticklabels={,,},yticklabels={,,},extra y ticks=273.15,
+		extra y tick style={grid=major, grid style={black}},
+		extra y tick labels={$T_0$},
+		extra x ticks=159,
+		extra x tick style={grid=major, grid style={black}},
+		extra x tick labels={$S_0$}]
+				\addplot [blue,domain=253.15:373.15,samples=200] ({159 + 1004*ln(x/273.15)},x);
+				\addplot [red,domain=253.15:373.15,samples=200] ({159 + 405*ln(x/273.15)},x);
+				\addplot [blue,dashed,domain=253.15:373.15,samples=200] ({200 + 1004*ln(x/273.15)},x);
+				\addplot [red,dashed,domain=253.15:373.15,samples=200] ({100 + 405*ln(x/273.15)},x);
+				\legend{$dp = 0$,$dv = 0$}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Diagramme ($T$,$S$) d'un gaz parfait}
+		\label{fig:TS_gaz_parfait}
+	\end{figure}
+\fi
+
+\subsection{Définir la transformation polytropique et
+en établir les équations appliquées au gaz idéal}
+On appelle transformation polytropique une transformation
+dans laquelle est respectée l'une des relations :
+\[ \frac{\dif H}{T \dif S} = \Psi = C^\text{te}
+\qquad \frac{\dif U}{T \dif S} = \Phi = C^\text{te} \]
+On notera que le rapport entre les coefficients $\Psi$ et $\Phi$ est constant
+et que le respect d'une des relations entraîne nécessairement celui de l'autre
+puisque l'on peut écrire :
+\[ \frac{\Psi}{\Phi} = \frac{\dif H}{\dif U} = \frac{c_p}{c_v} = \gamma \]
+où le quotient $\gamma$ est le \emph{coefficient de Poisson}, 
+propriété intrinsèque du gaz considéré.
+
+Dans le plan $(T,S)$ du gaz idéal, l'équation de la transformation polytropique
+se déduit de sa définition même en y explicitant $\dif U$ ou $\dif H$ :
+\[ \dif U = c_v \dif T = \Phi T \dif S
+\qquad \text{ou} \qquad \dif H = c_p \dif T = \Psi T \dif S \]
 La séparation des variables de cette équation donne :
-\begin{equation} dS = \frac{c_v}{\Phi}\frac{dT}{T} = \frac{c_p}{\Psi}\frac{dT}{T} = c\frac{dT}{T} \end{equation}
-avec $c$ la chaleur massique propre à la transformation.
+\[ \dif S = \frac{c_v}{\Phi}\frac{\dif T}{T}
+= \frac{c_p}{\Psi}\frac{\dif T}{T}
+= c\frac{\dif T}{T} \]
+avec $c$ une chaleur massique propre à la transformation.
 
-Dans le plan ($p$,$v$), l'équation de la transformation polytropique s'obtient en explicitant les expressions de $vdp$ et $pdv$ sous la forme :
-\begin{align} vdp &= dH-TdS = (\Psi - 1)TdS \\ pdv &= TdS - dU = (1-\Phi)TdS \end{align}
-Ce qui donne :
-\begin{equation} \frac{dp/p}{dv/v} = \frac{1-\Psi}{\Phi-1} \triangleq = -m \end{equation}
+Dans le plan $(p,v)$, l'équation de la transformation polytropique s'obtient
+en explicitant les expressions de $v \dif p$ et $p \dif v$ sous la forme :
+\begin{align*}
+	v\d{p} &= \d{H} - T\d{S} = (\Psi-1)T\d{S} \\
+	p\d{v} &= T\d{S} - \d{U} = (1-\Phi)T\d{S}
+\end{align*}
+ce qui donne par division membre à membre
+\[ \frac{\d{p}/p}{\d{v}/v} = \frac{1-\Psi}{\Phi-1} \eqdef -m \]
 Dans un intervalle où on peut admettre la constance des chaleurs massiques, et donc celles de $\Phi$, $\Psi$ et $m$, l'équation ci-dessus s'intègre sous la forme :
 \begin{equation} pv^m = C^\text{te}\end{equation}
 ce qui peut encore s'écrire :
@@ -74,7 +123,24 @@ ce qui peut encore s'écrire :
 Par ailleurs, l'utilisation du coefficient de Poisson $\gamma$ dans la relation liant l'exposant $m$ à $\Phi$ et $\Psi$ permet d'expliciter séparément ces deux paramètres en fonction de $m$ :
 \begin{equation} \Phi = \frac{m-1}{m-\gamma} \qquad \Psi = \gamma\frac{m-1}{m-\gamma} \end{equation}
 
-\subsection{Quelle est la loi de Dalton ? Donnez l'équation d'état d'un mélange homogène des gaz idéaux en appliquant cette loi.}
+\subsection{Quelle est la loi de Dalton ?
+Donner l'équation d'état d'un mélange homogène des gaz idéaux en appliquant cette loi.}
+Loi de Dalton sur l'additivité des pressions partielles:
+\begin{center}
+	\textit{Quand on mélange plusieurs gaz qui ne réagissent pas chimiquement,
+	chacun d'eux se répartit uniformément dans tout le volume offert comme s'il était seul
+	et la pression du mélange a pour valeur la somme des pressions dites partielles
+	qu'aurait chacun d'eux s'il occupait seul le volume total du mélange.}
+\end{center}
+On peut dès lors écrire, pour un volume total $V$ de mélange
+\[ pV = \sum_i p_i V = \sum_i n_i \Ru T \]
+ce qui, si on l'identifie à la relation
+\[ pV = \sum_i M_i R T \]
+donne immédiatement la constante massique $R$ du mélange
+\[ R = \frac{\sum_i n_i}{\sum_i M_i} = \frac{\Ru}{M_m} \]
+où $M_m$ est la masse molaire moyenne du mélange.
+
+\iffalse
 La \textbf{loi de Dalton} stipule que quand on mélange plusieurs gaz qui ne réagissent pas chimiquement, chacun d'eux se répartit uniformément dans tout le volume offert comme s'il était seul et la pression du mélange a pour valeur la sommes des pressions dites partielles qu'aurait chacun d'eux s'il occupait seul le volume total du mélange.
 \begin{equation} p = \sum p_i \end{equation}
 On peut dès lors écrire, pour un volume total $V$ de mélange :
@@ -89,27 +155,99 @@ L'opération de mélange a donc entraîné l'accroissement d'entropie molaire :
 \begin{equation} \Delta S_m = \sum_i\left(S_{mi}(p_i,t) - S_{mi}(p,t)\right) = -\sum_iR_u\ln{\frac{p_i}{p}} \end{equation}
 ce qui peut encore s'écrire en termes d'entropie massique :
 \begin{equation} \Delta S = \frac{\Delta S_m}{M_m} = -R\sum_i\ln{\frac{p_i}{p}} \end{equation}
+\fi
 
-\subsection{Démontrez que si l'énergie interne et l'enthalpie d'une substance ne dépendent que de la température, alors cette substance est un gaz idéal.}
+\subsection{Démontrer que si l'énergie interne et l'enthalpie d'une substance
+ne dépendent que de la température, alors cette substance est un gaz idéal.}
+Puisque l'énergie interne et l'enthalpie ne dépendent pas de la pression ni de la masse volumique,
+on peut écrire
+\begin{align*}
+	\dd{U} &= \thermodiff{U}{v}{T}\dd{v} + \thermodiff{U}{T}{v}\dd{T} = c_v\dd{T} \\
+	\dd{H} &= \thermodiff{H}{p}{T}\dd{p} + \thermodiff{H}{T}{p}\dd{T} = c_p\dd{T}
+\end{align*}
+où $c_v$ et $c_p$ ne dépendent que de la température.
+La relation de Gibbs devient alors
+\[ \dd{S} = \frac{c_v}{T}\dd{T} + \frac{p}{T}\dd{v} = \frac{c_p}{T}\dd{T} - \frac{v}{T}\dd{p}. \]
+L'application du théorème de Schwarz aux dérivées partielles apparaissant
+dans ces expressions différentielles donne lieu aux égalités suivantes:
+\begin{align*}
+	0 = \pdv{v}\left(\frac{c_v}{T}\right)_T &= \pdv{T}\left(\frac{p}{T}\right)_v
+	= \frac{1}{T}\thermodiff{p}{T}{v} - \frac{p}{T^2}
+	\\
+	0 = \pdv{p}\left(\frac{c_p}{T}\right)_T &= \pdv{T}\left(-\frac{v}{T}\right)_p
+	= -\frac{1}{T}\thermodiff{v}{T}{p} + \frac{v}{T^2}
+\end{align*}
+ce qui nous donne, par définition de $\alpha$ et $\beta$
+\begin{align*}
+	\frac{1}{v}\thermodiff{v}{T}{p} &= \alpha = \frac{1}{T} \\
+	\frac{1}{p}\thermodiff{p}{T}{v} &= \beta  = \frac{1}{T}
+\end{align*}
+ce qui prouve que le gaz en question est bien un gaz idéal.
+% TODO: comment retomber sur pv=RT à partir d'ici?
+
+\iffalse
+% proof that for ideal gas, c_p and c_v do not depend on p and v
+On reprend les expressions de la différentielle de l'entropie qui peuvent s'écrire comme suit
+pour un gaz idéal:
+\[ \d{S} = \frac{R}{v}\d{v} + \frac{c_v}{T}\d{T} = -\frac{R}{p}\d{p} + \frac{c_p}{T}\d{T}
+= \frac{c_v}{p}\d{p} + \frac{c_p}{v}\d{v} \]
+L'application du théorème de Schwarz aux dérivées partielles apparaissant dans ces expressions
+différentielles donne lieu aux égalités suivantes:
+\begin{align*}
+	\pdv{S}{v}{T} &= \frac{1}{T}\pdv{c_v}{v} = 
+	\pdv{S}{T}{v} = \pdv{T}\left(\frac{R}{v}\right) = 0 \\
+	\pdv{S}{p}{T} &= \frac{1}{T}\pdv{c_p}{p} = 
+	\pdv{S}{T}{p} = \pdv{T}\left(-\frac{R}{p}\right) = 0 \\
+\end{align*}
+Pour l'état gazeux idéal, les chaleurs massiques $c_p$ et $c_v$ sont donc indépendantes
+du volume massique et de la pression.
+\fi
+
+\iffalse
 Un gaz est dit idéal si il suit l'équation $pv = RT$. Pour l'état gazeux idéal, les chaleurs massiques $c_v$ et $c_p$ sont indépendantes du volume massique et de la pression. Il en va donc de même pour l'énergie interne $U$ et l'enthalpie $H$, puisque l'on a, en prenant l'expression de  $dS$ dans la matrice \ref{eq:matriceSideal} :
 \begin{align} dU &= TdS - pdv = \frac{RT}{v}dv + c_vdT - pdv = c_vdT \\ dH &= TdS + vdp = \frac{-RT}{p}dp + c_pdT + vdp = c_pdT \end{align}
 Cette propriété est connue sous le nom de \textbf{loi de Joule du gaz idéal}. Ces considérations permettent de calculer les variations de l'énergie interne et de l'enthalpie pour toute transformation du gaz idéal au moyen des relations :
 \begin{align} \Delta U &= \int_{T_1}^{T_2}c_vdT \\ \Delta H &= \int_{T_1}^{T_2}c_pdT \end{align}
+\fi
 
-\subsection{Considérez l'équation des transformations isochores ainsi que l'équation des transformations isobares d'un gaz idéal. Quelle des deux équations a la pente la plus élevée dans le plan ($T$,$S$). Justifiez votre réponse.}
+\subsection{Considérer l'équation des transformations isochores
+ainsi que l'équation des transformations isobares d'un gaz idéal.
+Laquelle des deux équations a la pente la plus élevée dans le plan $(T,S)$?
+Justifier votre réponse.}
+Par l'équation de Gibbs pour les gaz idéaux, on a
+\begin{align*}
+	\text{à volume constant}\quad & \dd{S} = c_v\frac{\dd{T}}{T} \quad
+	\Rightarrow \quad \dv{T}{S} = \frac{T}{c_v} \\
+	\text{à pression constante}\quad & \dd{S} = c_p\frac{\dd{T}}{T} \quad
+	\Rightarrow \quad \dv{T}{S} = \frac{T}{c_p}
+\end{align*}
+Les isochores ont dont une pente plus élevée que les isobares, car $c_p > c_v$.
+
+\iffalse
 On reprend les équations \ref{eq:isobare_ideal} et \ref{eq:isochore_ideal} de la question \ref{q:2_2}:
 \begin{align} p = C^\text{te} \qquad &\Rightarrow \qquad \frac{T_f}{T_i} = \exp\left(\frac{\Delta S}{c_p}\right) \\ v = C^\text{te}  \qquad &\Rightarrow \qquad \frac{T_f}{T_i} = \exp\left(\frac{\Delta S}{c_v}\right) \end{align}
 Comme $c_p > c_v$, une transformations isochore aura une pente plus élevée dans le diagramme ($T$,$S$) qu'une transformation isobare sous les mêmes conditions initiales. Ce résultat est également visible sur le diagramme à la figure \ref{fig:TS_gaz_parfait}.
+\fi
 
-\subsection{Démontrez que l'expression suivante est valable pour des gaz idéaux $c_p-c_v = R$.}
-On sait que les chaleurs massiques sont liées par la relation 
-\begin{equation} c_p-c_v = \alpha\beta pvT \end{equation}
-qui a été démontrée à la question \ref{q:1_7}. Si on reprend les définitions de $\alpha$ et de $\beta$ dans le cas des gaz idéaux (voir équation \ref{eq:coef_ideaux}) : 
-\begin{equation} \alpha \triangleq \frac{1}{v}\left(\frac{\partial v}{\partial T}\right)_p = \frac{R}{pv} = \frac{1}{T} \qquad \beta \triangleq \frac{1}{p}\left(\frac{\partial p}{\partial T}\right)_v = \frac{R}{pv} = \frac{1}{T} \end{equation}
-On trouve alors la relation liant les chaleurs massiques $c_p$ et $c_v$ :
+\subsection{Démontrer que l'expression suivante est valable pour des gaz idéaux $c_p-c_v = R$.}
+On sait que les chaleurs massiques d'un gaz quelconque sont liées par la relation 
+\[ c_p-c_v = \alpha\beta pvT \]
+Si on reprend les définitions de $\alpha$ et de $\beta$ dans le cas des gaz idéaux ($pv=RT$),
+\[ \alpha \eqdef \frac{1}{v}\thermodiff{v}{T}{p} = \frac{R}{pv} = \frac{1}{T}
+\qquad \beta \eqdef \frac{1}{p}\thermodiff{p}{T}{v} = \frac{R}{pv} = \frac{1}{T} \]
+on trouve la relation liant les chaleurs massiques $c_p$ et $c_v$ :
 \begin{equation} c_p-c_v = \frac{pv}{T} = R \end{equation}
 
-\subsection{Démontrez que le travail produit par l'expansion isotherme de $N$ moles d'un gaz idéal est donnée par l'équation \ref{eq:q2_8}.}
+\subsection{Démontrer que le travail produit par l'expansion isotherme de $N$ moles d'un gaz idéal
+est donnée par $ W = -N\Ru T\ln(V_f/V_i) $, $V_i$ étant le volume initial
+et $V_f$ le volume final du gaz.}
+Si on suppose la transformation réversible ($\Wf=0$), le travail produit a pour expression
+\[ W = \int -p\dd{V} \]
+Par l'équation d'état des gaz idéaux $pV = N \Ru T$ et sachant que la température est constante,
+\[ W = -N\Ru T\int_{V_i}^{V_f} \frac{\dd{V}}{V} = -N\Ru T\ln\left(\frac{V_f}{V_i}\right) \]
+Notons que ce travail est négatif si $V_f > V_i$ (le gaz fournit un travail).
+
+\iffalse
 \begin{equation} W = -NR_uT\ln\left(\frac{V_f}{V_i}\right) \label{eq:q2_8}\end{equation}
 où $V_i$ est le volume inital et $V_f$ le volume final de gaz.
 Prenons pour exemple un piston sur lequel une pression est excercée par le milieu extérieur :
@@ -119,10 +257,33 @@ Le travail est fourni par le système contre $F_\text{ext}$, donc $\delta W$ doi
 Si l'expansion est réversible, à chaque instant la pression intérieure est ajustée à la pression extérieure. Donc $P_\text{ext} = P_\text{int}$ à chaque instant :
 \begin{equation} \delta W = -P_\text{int}dV = -NR_uT\frac{dV}{V} \end{equation}
 Après intégration, on trouve l'équation \ref{eq:q2_8}. On observe donc que pour une détente isotherme : $W<0$, le travail est fourni par le système.
+\fi
 
-\subsection{Donnez la définition de la pression partielle $p_i$ du constituant $i$ dans un mélange homogène de $n$ constituant. Dérivez ensuite l'expression pour la production d'entropie d'opération de mélange des $\eta_A$ moles d'un gaz idéal $A$ avec $\eta_B$ moles d'un gaz idéal $B$. Initialement, les deux gaz occupent des volumes différents, $V_A$ et $V_B$, séparés par un diaphragme.}
-La pression partielle d'un constituant $i$ est la pression qu'il aurait s'il occupait seul le volume du mélange.
+\subsection{Donner la définition de la pression partielle $p_i$ du constituant $i$
+dans un mélange homogène de $n$ constituants.
+Dériver l'expression pour la production d'entropie d'opération de mélange des
+$n_A$ moles d'un gaz idéal $A$ avec $n_B$ moles d'un gaz idéal $B$.
+Initialement, les deux gaz occupent des volumes différents $V_A$ et $V_B$
+séparés par un diaphragme.}
+La pression partielle d'un constituant $i$ est la pression qu'il aurait s'il occupait seul le volume total du mélange.
 
+Avant mélange (état 1), les constituants occupent aux mêmes conditions de pression
+et de température des volumes séparés.
+L'entropie du système est alors la somme des entropies individuelles pondérées par les fractions
+définissant le mélange, soit, en notant l'entropie molaire $S_m$:
+\[ S_{m,1} = [A] S_{mA}(p,T) + [B] S_{mB}(p,T) \]
+Après mélange (état 2), chaque constituant s'étant détendu de façon isotherme dans tout
+le volume disponible, de la pression totale $p$ aux pressions partielles $p_A$ et $p_B$,
+l'entropie prend pour valeur
+\[ S_{m,2} = [A] S_{mA}(p_A,T) + [B] S_{mB}(p_B,T). \]
+L'opération de mélange a donc entrainé l'accroissement d'entropie molaire:
+\[ \Delta S_m = [A] \left(S_{mA}(p_A,T) - S_{mA}(p,T)\right) +
+[B] \left(S_{mB}(p_B,T) - S_{mB}(p,T)\right) \]
+Connaissant la variation d'entropie molaire pour une transformation isotherme
+$ \Delta S_m = -\Ru\ln(p_2/p_1) $, on trouve
+\[ \Delta S_m = -\Ru \left( [A]\ln\frac{p_A}{p} + [B]\ln\frac{p_B}{p} \right) \]
+
+\iffalse
 Considérons un espace fermé séparé en deux domaines différents $A$ et $B$, séparés par un diaphragme. Les volumes de ces deux domaines sont $V_A$ et $V_B$. Dans le domaine $A$ il y a $\eta_A$ moles du gaz $A$ et dans le domaine $B$ il y a $\eta_B$ moles du gaz $B$. Ce système est à l'équilibre et en équilibre avec l'extérieur. Sa pression à cet état d'équilibre est $p_0$ et sa température est $T_0$. Les entropies des deux gaz sont $S_{0,A}$ et $S_{0,B}$. De plus, on les considère comme les entropies de références pour les gaz. L'entropie totale du système est 
 \begin{equation} S_0 = S_{0,A} + S_{0,B} \end{equation}
 À l'instant où on enlève le diaphragme, les deux gaz se mélange. À la fin de ce processus on aura un mélange homogène à l'équilibre et en équilibre avec l'extérieur. Ceci signifie que la pression et la température à la fin de l'opération de mélange sont identiques :
@@ -139,3 +300,4 @@ où $\left[i\right]$ est la fraction molaire du gaz $i$. La variation d'entropie
 \begin{equation} S-S_0 = S_A - S_{0,A} + S_B - S_{0,B} = -R_u\left(\eta_A\ln\left(\left[A\right]\right) + \eta_B\ln\left(\left[B\right]\right)\right) \end{equation}
 Pour obtenir l'expression de la production d'entropie spécifique, il faut encore diviser cette dernière relation par le nomre total de moles du mélange :
 \begin{equation} s-s_0 =  -R_u\left(\left[A\right]\ln\left(\left[A\right]\right) + \left[B\right]\ln\left(\left[B\right]\right)\right) \end{equation}
+\fi
